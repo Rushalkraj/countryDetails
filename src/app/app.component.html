@@ -8,7 +8,8 @@
       {{ country.name }} ({{ country.code }})
     </option>
   </select>
-
+   
+  <div *ngIf="loading" class="spinner"></div>
   
   <div class="currency-info" *ngIf="currencyInfo">
     <h3>💰 Currency Details</h3>
