@@ -17,11 +17,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.loading = true;
-    this.countryService.getCountryCodes().subscribe(data => {
-      this.countries = data;
-      this.loading = false;
-    }, () => {
-      this.loading = false;
+    this.countryService.getCountryCodes().subscribe({
+      next: data => {
+        this.countries = data;
+        this.loading = false;
+      },
+      complete:  () => this.loading = false
     });
   }
 
@@ -30,12 +31,12 @@ export class AppComponent implements OnInit {
       this.currencyInfo = null;
       this.loading = true;
 
-      this.countryService.getCurrencyInfo(this.selectedCountryCode).subscribe(data => {
-        this.currencyInfo = data;
-        this.loading = false;
-      }, () => {
-        this.loading = false;
-      });
+      this.countryService.getCurrencyInfo(this.selectedCountryCode).subscribe({
+        next: data => {
+          this.currencyInfo = data;
+        },
+        complete: () => this.loading = false
+    });
     }
   }
 }

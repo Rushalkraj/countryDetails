@@ -29,6 +29,7 @@ export class CountryService {
 
   
   getCurrencyInfo(countryCode: string): Observable<{ currency: string, symbol: string } | null> {
+
     return this.http.get<any>(`${this.countryDetailApiUrl}${countryCode}`).pipe(
       map(response => {
         const countryData = response[0]; 

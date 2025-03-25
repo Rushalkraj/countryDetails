@@ -1,19 +1,23 @@
-<div class="container">
-  <h2>🌍 Select a Country</h2>
+<div class="app-wrapper">
+  <div class="background-image"></div>
+  <div class="background-overlay"></div>
+  <div class="container">
+    <h2>🌍 Select a Country</h2>
 
-  
-  <select [(ngModel)]="selectedCountryCode" (change)="onCountryChange()">
-    <option value="" disabled selected>-- Choose a Country --</option>
-    <option *ngFor="let country of countries" [value]="country.code">
-      {{ country.name }} ({{ country.code }})
-    </option>
-  </select>
-   
-  <div *ngIf="loading" class="spinner"></div>
-  
-  <div class="currency-info" *ngIf="currencyInfo">
-    <h3>💰 Currency Details</h3>
-    <p><strong>Currency:</strong> {{ currencyInfo.currency }}</p>
-    <p><strong>Symbol:</strong> {{ currencyInfo.symbol }}</p>
+    
+    <select [(ngModel)]="selectedCountryCode" (change)="onCountryChange()">
+      <option value="" disabled selected>-- Choose a Country --</option>
+      <option *ngFor="let country of countries" [value]="country.code">
+        {{ country.name }} ({{ country.code }})
+      </option>
+    </select>
+     
+    <div *ngIf="loading" class="spinner"></div>
+    
+    <div class="currency-info" *ngIf="currencyInfo">
+      <h3>💰 Currency Details</h3>
+      <p><strong>Currency:</strong> {{ currencyInfo.currency }}</p>
+      <p><strong>Symbol:</strong> {{ currencyInfo.symbol }}</p>
+    </div>
   </div>
 </div>
